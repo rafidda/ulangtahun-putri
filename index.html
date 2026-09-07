@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>Selamat Ulang Tahun, Putri 🎂</title>
+  <meta name="description" content="Hadiah kecil di hari istimewamu, Putri Saadatul Alawiyah Rahmat — 8 September 2026" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=Dancing+Script:wght@500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Ambient music -->
+  <!-- Ambient music: letakkan file music.mp3 di folder ini untuk ganti musik -->
+  <!-- Atau: download lagu Celtic gratis dari https://www.fesliyanstudios.com/royalty-free-music/downloads-and-albums/celtic-background-music-72 -->
+  <!-- lalu rename jadi music.mp3 dan taruh di folder ini -->
+  <audio id="bgMusic" loop preload="auto">
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- Music toggle -->
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()" title="Toggle musik">
+    <div class="music-icon" id="musicIcon">
+      <span></span><span></span><span></span><span></span>
+    </div>
+  </button>
+
+  <!-- Floating petals -->
+  <div class="petals-container" id="petals"></div>
+
+  <!-- ===================== ENVELOPE INTRO ===================== -->
+  <div class="intro-screen" id="introScreen">
+    <div class="intro-inner">
+      <div class="stars-bg"></div>
+      <div class="envelope-wrap" id="envelopeWrap" onclick="openEnvelope()">
+        <div class="envelope" id="envelope">
+          <div class="env-flap" id="envFlap"></div>
+          <div class="env-body">
+            <div class="env-lines">
+              <span></span><span></span><span></span>
+            </div>
+            <div class="env-seal">
+              <div class="seal-ring"></div>
+              <span class="seal-emoji">🌸</span>
+            </div>
+          </div>
+          <div class="env-letter" id="envLetter">
+            <p>untuk kamu ~</p>
+          </div>
+        </div>
+        <p class="intro-name">Putri Saadatul Alawiyah</p>
+        <p class="intro-hint">✦ tap untuk membuka ✦</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== MAIN CONTENT ===================== -->
+  <main id="mainContent" class="main-hidden">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero-bg-img"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-particles" id="heroParticles"></div>
+      <div class="hero-content">
+        <div class="age-ring" data-aos="zoom-in">
+          <svg viewBox="0 0 120 120" class="age-svg">
+            <circle cx="60" cy="60" r="54" class="ring-track"/>
+            <circle cx="60" cy="60" r="54" class="ring-fill" id="ringFill"/>
+          </svg>
+          <div class="age-center">
+            <span class="age-num">26</span>
+            <span class="age-th">tahun</span>
+          </div>
+        </div>
+        <p class="hero-eyebrow" data-aos="fade-up" data-aos-delay="200">✦ selamat ulang tahun ✦</p>
+        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="300">
+          <span class="title-line1">Putri Saadatul</span>
+          <em class="title-line2">Alawiyah</em>
+        </h1>
+        <p class="hero-date" data-aos="fade-up" data-aos-delay="400">8 September 2000 &mdash; 8 September 2026</p>
+        <a href="#message" class="hero-scroll-btn" data-aos="fade-up" data-aos-delay="500">
+          <span>scroll</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 5v14M5 12l7 7 7-7"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- MESSAGE -->
+    <section class="message-section" id="message">
+      <div class="section-container">
+        <div class="section-tag" data-aos="fade-up">untukmu</div>
+        <div class="msg-card" data-aos="fade-up" data-aos-delay="150">
+          <div class="msg-top-line"></div>
+          <div class="msg-body">
+            <span class="big-quote">"</span>
+            <p class="msg-main">
+              Aku agak kaku buat ngucapin selamat ulang tahun,<br />
+              tapi — <strong>selamat ulang tahun yaa~</strong>
+            </p>
+            <p class="msg-sub">
+              Semoga kamu sehat selalu.<br />
+              Semoga hari-harimu bisa bahagia dan akan <em>selalu</em> bahagia.<br />
+              Semoga setiap harapan yang kamu simpan dalam hati,<br />
+              akan berjalan dengan baik sesuai dengan jalan-Nya. 🤍
+            </p>
+            <div class="msg-sig">— arip 🌿</div>
+          </div>
+          <div class="msg-deco-leaf">🌿</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY — Horizontal Ticker -->
+    <section class="gallery-section" id="gallery">
+      <div class="section-container gallery-header">
+        <div class="section-tag" data-aos="fade-up">kenangan</div>
+        <p class="section-sub" data-aos="fade-up" data-aos-delay="100">momen-momen kecil yang selalu diingat 🌸</p>
+      </div>
+
+      <!-- Row 1: scroll left -->
+      <div class="ticker-wrap" data-aos="fade-up" data-aos-delay="150">
+        <div class="ticker-track" id="tickerTrack1">
+          <!-- JS will populate & duplicate these -->
+        </div>
+      </div>
+
+      <!-- Row 2: scroll right -->
+      <div class="ticker-wrap ticker-wrap--reverse" data-aos="fade-up" data-aos-delay="250">
+        <div class="ticker-track" id="tickerTrack2">
+        </div>
+      </div>
+
+      <p class="gallery-tap-hint" data-aos="fade-up" data-aos-delay="300">✦ tap foto untuk lihat lebih besar ✦</p>
+    </section>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lb-close" onclick="closeLightbox()">✕</button>
+      <button class="lb-nav lb-prev" onclick="event.stopPropagation(); navLightbox(-1)">&#8249;</button>
+      <button class="lb-nav lb-next" onclick="event.stopPropagation(); navLightbox(1)">&#8250;</button>
+      <div class="lb-inner" onclick="event.stopPropagation()">
+        <img id="lbImg" src="" alt="" />
+        <p id="lbCaption" class="lb-caption"></p>
+      </div>
+    </div>
+
+    <!-- WISHES -->
+    <section class="wishes-section" id="wishes">
+      <div class="section-container">
+        <div class="section-tag" data-aos="fade-up">doa kecil</div>
+        <div class="wishes-grid wishes-grid--5">
+          <div class="wish-item" data-aos="fade-up" data-aos-delay="0">
+            <div class="wish-glyph">🌸</div>
+            <h3>Kesehatan</h3>
+            <p>Semoga kamu sehat selalu, jiwa dan raganya</p>
+          </div>
+          <div class="wish-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="wish-glyph">✨</div>
+            <h3>Kebahagiaan</h3>
+            <p>Semoga kamu bisa bahagia dan membahagiakan orang-orang di sekitar kamu</p>
+          </div>
+          <div class="wish-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="wish-glyph">🤍</div>
+            <h3>Mimpi</h3>
+            <p>Semoga banyak mimpi kamu bisa terwujud yaa sayang~</p>
+          </div>
+          <div class="wish-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="wish-glyph">🎂</div>
+            <h3>Hari Ini</h3>
+            <p>Semoga di hari ulang tahun ini, kamu merasakan bahagia dan selalu damai</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING / DARK SECTION -->
+    <section class="closing-section" id="closing">
+      <div class="closing-particles" id="closingParticles"></div>
+      <div class="section-container closing-inner">
+        <p class="closing-quote" data-aos="fade-up">
+          "Kamu punya dunia kamu, keluarga, sahabat, teman,<br />kerjaan dan banyak lagi — semoga kamu mendapat<br />banyak hal baik di dunia kamu."
+        </p>
+        <div class="closing-name" data-aos="zoom-in" data-aos-delay="200">Putri 🌸</div>
+        <button class="celebrate-btn" id="celebrateBtn" data-aos="fade-up" data-aos-delay="300" onclick="celebrate()">
+          <span class="btn-shimmer"></span>
+          <span class="btn-text">🎉 Rayakan Hari Ini!</span>
+        </button>
+
+        <!-- Easter egg: IT page — sedikit visible buat yang penasaran -->
+        <div class="it-trigger" id="itTrigger" onclick="goToItPage()">
+          <span class="it-tag">&lt;/&gt;</span>
+          <span class="it-tag-label">from a dev with love</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <p>dibuat dengan <span class="heart-pulse">🤍</span> khusus untukmu · 8 September 2026</p>
+    </footer>
+
+  </main>
+
+  <!-- ===================== IT/PIXEL PAGE ===================== -->
+  <div class="it-page" id="itPage">
+    <div class="it-scanlines"></div>
+    <div class="it-content">
+      <div class="it-terminal">
+        <div class="it-bar">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="it-title-bar">~/birthday-putri — bash</span>
+        </div>
+        <div class="it-body" id="itBody"></div>
+        <div class="it-cursor-line">
+          <span class="it-prompt">$&gt; </span>
+          <span class="it-blink-cursor">█</span>
+        </div>
+      </div>
+      <button class="it-back-btn" onclick="closeItPage()">← kembali ke kartu</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
