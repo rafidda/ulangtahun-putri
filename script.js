@@ -266,7 +266,7 @@ const CONFETTI_COLORS = ['#c9a96e', '#e8d5b0', '#8b6f5a', '#d4c4b0', '#fff9f4', 
 window.celebrate = function () {
   const btn = document.getElementById('celebrateBtn');
   btn.querySelector('.btn-text').textContent = '🎉 Happy Birthday, Putri!';
-  setTimeout(() => { btn.querySelector('.btn-text').textContent = '🎉 Rayakan Hari Ini!'; }, 4000);
+  setTimeout(() => { btn.querySelector('.btn-text').textContent = '🎉 Klik buat ngerayain !'; }, 4000);
 
   for (let i = 0; i < 150; i++) {
     setTimeout(() => {
