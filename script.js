@@ -5,7 +5,7 @@ const PHOTOS = [
   { src: 'photos/photo1.jpg', icon: '📷', caption: 'kita photobooth di uragawa, masih kaku, wkww' },
   { src: 'photos/photo2.jpg', icon: '🥤', caption: 'kelaperan, beli kue koin, takut papasan sama rohan -_-' },
   { src: 'photos/photo3.jpg', icon: '📸', caption: 'banyak gaya foto di aeon, setdahh' },
-  { src: 'photos/photo4.jpg', icon: '😏', caption: 'udah kaya jinakin aku nih' },
+  { src: 'photos/photo4.jpg', icon: '😏', caption: 'udah kaya jinakin orang neeh' },
   { src: 'photos/photo5.jpg', icon: '✨', caption: 'ini bagus sihhh photoboothnyaa' },
   { src: 'photos/photo6.jpg', icon: '😎', caption: 'katanya ini cakep banget fotonya, (siape dulu yang motoin dongg 😎)' },
 ];
