@@ -38,6 +38,183 @@ body {
 img { display: block; width: 100%; height: 100%; object-fit: cover; }
 
 /* ============================================================
+   SPLIT-CHAR ANIMATION (hero title letters)
+   ============================================================ */
+.word-wrap {
+  display: inline-block;
+  white-space: nowrap;
+}
+.char-space {
+  display: inline-block;
+  width: 0.28em;
+}
+.char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(35px) rotate(3deg);
+  transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.25s ease;
+  will-change: transform, opacity;
+  cursor: default;
+}
+.char.visible {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+}
+.char.visible:hover {
+  transform: translateY(-6px) scale(1.08);
+  color: var(--gold);
+}
+
+/* ============================================================
+   TEXT MARQUEE STRIPS
+   ============================================================ */
+.text-marquee-wrap {
+  width: 100%;
+  overflow: hidden;
+  background: var(--espresso);
+  padding: 14px 0;
+  border-top: 1px solid rgba(201, 169, 110, 0.22);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.22);
+  mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+.text-marquee-wrap:hover .text-marquee-track {
+  animation-play-state: paused;
+}
+.text-marquee-wrap--dark {
+  background: linear-gradient(90deg, var(--brown-dk), var(--espresso));
+}
+
+.text-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  width: max-content;
+  white-space: nowrap;
+  animation: marqueeLeft 22s linear infinite;
+  will-change: transform;
+}
+.text-marquee-track--reverse {
+  animation: marqueeRight 28s linear infinite;
+}
+
+@keyframes marqueeLeft  { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+@keyframes marqueeRight { 0%{transform:translateX(-50%)} 100%{transform:translateX(0)} }
+
+.text-marquee-track span {
+  font-family: var(--serif);
+  font-size: 0.72rem;
+  font-style: italic;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  padding: 0 1.2rem;
+  transition: color 0.2s ease;
+}
+.text-marquee-track span:hover {
+  color: var(--gold-lt);
+}
+.text-marquee-track span.mx {
+  color: var(--gold);
+  opacity: 0.75;
+  padding: 0;
+  font-style: normal;
+  font-size: 0.6rem;
+}
+
+/* ============================================================
+   LUSION-STYLE SCROLL TYPOGRAPHY (Message Section)
+   ============================================================ */
+.lusion-line {
+  display: block;
+  margin-bottom: 0.18rem;
+  line-height: 1.6;
+}
+.lusion-word {
+  display: inline-block;
+  opacity: 0.14;
+  filter: blur(5px);
+  transform: translateY(22px) rotate(-2.5deg) scale(0.92);
+  transition: opacity 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity, filter, transform;
+  transform-origin: 0% 100%;
+}
+.lusion-word.active {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) rotate(0deg) scale(1);
+  color: var(--text);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              color 0.3s ease,
+              text-shadow 0.3s ease;
+}
+.lusion-word.highlight {
+  font-weight: 600;
+  color: var(--brown);
+}
+.lusion-word.highlight.active {
+  color: var(--brown-dk);
+  text-shadow: 0 0 16px rgba(201, 169, 110, 0.45);
+}
+.lusion-word.accent {
+  font-style: italic;
+  color: var(--brown-lt);
+}
+.lusion-word.accent.active {
+  color: var(--brown);
+}
+.lusion-word.lusion-heart {
+  font-style: normal;
+  display: inline-block;
+}
+.lusion-word.lusion-heart.active {
+  animation: lusionHeartPop 1.8s ease-in-out infinite alternate;
+}
+@keyframes lusionHeartPop {
+  0%   { transform: scale(1); }
+  100% { transform: scale(1.22); }
+}
+
+/* ============================================================
+   ELEGANT KINETIC MOVING CHARS (Closing Quote)
+   ============================================================ */
+.cq-line {
+  display: block;
+  margin-bottom: 0.35rem;
+  overflow: visible;
+}
+.cq-word-wrap {
+  display: inline-block;
+  white-space: nowrap;
+}
+.cq-space {
+  display: inline-block;
+  width: 0.28em;
+}
+.cq-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(28px) rotateX(42deg) scale(0.92);
+  filter: blur(4px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+  transform-origin: center bottom;
+}
+.cq-char.visible {
+  opacity: 1;
+  transform: translateY(0) rotateX(0deg) scale(1);
+  filter: blur(0);
+}
+
+/* ============================================================
    SCROLL ANIMATIONS (AOS-like, pure CSS + JS)
    ============================================================ */
 [data-aos] {
@@ -431,17 +608,17 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .msg-main {
   font-family: var(--serif);
-  font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+  font-size: clamp(1.12rem, 3.4vw, 1.3rem);
   color: var(--text);
-  margin-bottom: 1.2rem;
-  line-height: 1.75;
+  margin-bottom: 0.85rem;
+  line-height: 1.55;
 }
 .msg-main strong { color: var(--brown); }
 .msg-sub {
-  font-size: 1rem;
+  font-size: 0.96rem;
   color: var(--text-s);
-  line-height: 1.95;
-  margin-bottom: 2rem;
+  line-height: 1.6;
+  margin-bottom: 1.6rem;
 }
 .msg-sub em { color: var(--brown-lt); font-style: normal; font-weight: 500; }
 .msg-sig {
@@ -633,21 +810,96 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
 }
 .wish-item {
   background: white;
-  border-radius: 16px;
-  padding: 1.6rem 1.2rem;
+  border-radius: 18px;
+  padding: 1.8rem 1.2rem;
   border: 1px solid var(--beige);
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.45s ease;
+  will-change: transform, box-shadow;
+  position: relative;
+  overflow: hidden;
 }
-.wish-item:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(139,111,90,0.15); }
-.wish-glyph { font-size: 2rem; margin-bottom: 0.6rem; }
-.wish-item h3 {
+.wish-item.wish-active {
+  transform: translateY(-4px);
+  border-color: rgba(201, 169, 110, 0.5);
+  box-shadow: 0 14px 40px rgba(139, 111, 90, 0.12), 0 0 20px rgba(201, 169, 110, 0.1);
+}
+
+.wish-glyph {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+  transform: scale(0.85) rotate(-10deg);
+  opacity: 0.4;
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.4s ease;
+}
+.wish-item.wish-active .wish-glyph {
+  transform: scale(1) rotate(0deg);
+  opacity: 1;
+}
+
+.wish-title {
   font-family: var(--serif);
-  font-size: 0.95rem;
+  font-size: 1.05rem;
   color: var(--brown-dk);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.03em;
+  overflow: visible;
 }
-.wish-item p { font-size: 0.82rem; color: var(--text-s); line-height: 1.6; }
+
+.wish-char {
+  display: inline-block;
+  opacity: 0.15;
+  filter: blur(4px);
+  transform: translateY(22px) rotate(6deg) scale(0.85);
+  transition: opacity 0.32s ease-out,
+              transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.32s ease-out;
+  transition-delay: 0s;
+  will-change: opacity, transform, filter;
+}
+.wish-char.wish-space {
+  width: 0.26em;
+}
+.wish-item.wish-active .wish-char {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0) rotate(0deg) scale(1);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--char-delay, 0s);
+}
+
+.wish-desc {
+  font-size: 0.84rem;
+  color: var(--text-s);
+  line-height: 1.65;
+  margin: 0;
+}
+
+.wish-word {
+  display: inline-block;
+  opacity: 0.15;
+  filter: blur(3.5px);
+  transform: translateY(14px);
+  transition: opacity 0.32s ease-out,
+              transform 0.32s cubic-bezier(0.4, 0, 0.2, 1),
+              filter 0.32s ease-out;
+  transition-delay: 0s;
+  will-change: opacity, transform, filter;
+}
+.wish-item.wish-active .wish-word {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--word-delay, 0s);
+}
 
 /* ============================================================
    CLOSING SECTION
@@ -675,8 +927,10 @@ img { display: block; width: 100%; height: 100%; object-fit: cover; }
   font-size: clamp(1.2rem, 4vw, 1.8rem);
   color: var(--gold-lt);
   font-style: italic;
-  line-height: 1.65;
-  margin-bottom: 2rem;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  perspective: 1000px;
+  will-change: transform;
 }
 .closing-name {
   font-family: var(--script);

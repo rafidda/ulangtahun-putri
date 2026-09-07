@@ -81,9 +81,9 @@
           </div>
         </div>
         <p class="hero-eyebrow" data-aos="fade-up" data-aos-delay="200">✦ selamat ulang tahun ✦</p>
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="300">
-          <span class="title-line1">Putri Saadatul</span>
-          <em class="title-line2">Alawiyah</em>
+        <h1 class="hero-title" id="heroTitle">
+          <span class="title-line1" id="heroLine1">Putri Saadatul</span>
+          <em class="title-line2" id="heroLine2">Alawiyah</em>
         </h1>
         <p class="hero-date" data-aos="fade-up" data-aos-delay="400">8 September 2000 &mdash; 8 September 2026</p>
         <a href="#message" class="hero-scroll-btn" data-aos="fade-up" data-aos-delay="500">
@@ -95,19 +95,42 @@
       </div>
     </section>
 
+    <!-- TEXT MARQUEE STRIP 1 -->
+    <div class="text-marquee-wrap" aria-hidden="true">
+      <div class="text-marquee-track">
+        <span>HAPPY BIRTHDAY</span><span class="mx">✦</span>
+        <span>PUTRI SAADATUL ALAWIYAH</span><span class="mx">✦</span>
+        <span>8 SEPTEMBER 2026</span><span class="mx">✦</span>
+        <span>SEMOGA SEHAT SELALU</span><span class="mx">✦</span>
+        <span>HAPPY BIRTHDAY</span><span class="mx">✦</span>
+        <span>PUTRI SAADATUL ALAWIYAH</span><span class="mx">✦</span>
+        <span>8 SEPTEMBER 2026</span><span class="mx">✦</span>
+        <span>SEMOGA SEHAT SELALU</span><span class="mx">✦</span>
+        <!-- duplicate for seamless loop -->
+        <span>HAPPY BIRTHDAY</span><span class="mx">✦</span>
+        <span>PUTRI SAADATUL ALAWIYAH</span><span class="mx">✦</span>
+        <span>8 SEPTEMBER 2026</span><span class="mx">✦</span>
+        <span>SEMOGA SEHAT SELALU</span><span class="mx">✦</span>
+        <span>HAPPY BIRTHDAY</span><span class="mx">✦</span>
+        <span>PUTRI SAADATUL ALAWIYAH</span><span class="mx">✦</span>
+        <span>8 SEPTEMBER 2026</span><span class="mx">✦</span>
+        <span>SEMOGA SEHAT SELALU</span><span class="mx">✦</span>
+      </div>
+    </div>
+
     <!-- MESSAGE -->
     <section class="message-section" id="message">
       <div class="section-container">
         <div class="section-tag" data-aos="fade-up">buat putri~</div>
-        <div class="msg-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="msg-card" id="msgCard" data-aos="fade-up" data-aos-delay="150">
           <div class="msg-top-line"></div>
           <div class="msg-body">
             <span class="big-quote">"</span>
-            <p class="msg-main">
+            <p class="msg-main" id="msgMain">
               Aku agak kaku buat ngucapin selamat ulang tahun,<br />
               tapi — <strong>selamat ulang tahun yaa~</strong>
             </p>
-            <p class="msg-sub">
+            <p class="msg-sub" id="msgSub">
               Semoga kamu sehat selalu.<br />
               Semoga hari-harimu bisa bahagia dan akan <em>selalu</em> bahagia.<br />
               Semoga setiap harapan yang kamu simpan dalam hati,<br />
@@ -146,6 +169,28 @@
         rada lama, wkwww</p>
     </section>
 
+    <!-- TEXT MARQUEE STRIP 2 (reverse) -->
+    <div class="text-marquee-wrap text-marquee-wrap--dark" aria-hidden="true">
+      <div class="text-marquee-track text-marquee-track--reverse">
+        <span>SEHAT SELALU</span><span class="mx">✦</span>
+        <span>BAHAGIA</span><span class="mx">✦</span>
+        <span>DIMUDAHKAN JALANNYA</span><span class="mx">✦</span>
+        <span>SEMOGA MIMPINYA TERWUJUD</span><span class="mx">✦</span>
+        <span>SEHAT SELALU</span><span class="mx">✦</span>
+        <span>BAHAGIA</span><span class="mx">✦</span>
+        <span>DIMUDAHKAN JALANNYA</span><span class="mx">✦</span>
+        <span>SEMOGA MIMPINYA TERWUJUD</span><span class="mx">✦</span>
+        <span>SEHAT SELALU</span><span class="mx">✦</span>
+        <span>BAHAGIA</span><span class="mx">✦</span>
+        <span>DIMUDAHKAN JALANNYA</span><span class="mx">✦</span>
+        <span>SEMOGA MIMPINYA TERWUJUD</span><span class="mx">✦</span>
+        <span>SEHAT SELALU</span><span class="mx">✦</span>
+        <span>BAHAGIA</span><span class="mx">✦</span>
+        <span>DIMUDAHKAN JALANNYA</span><span class="mx">✦</span>
+        <span>SEMOGA MIMPINYA TERWUJUD</span><span class="mx">✦</span>
+      </div>
+    </div>
+
     <!-- LIGHTBOX -->
     <div class="lightbox" id="lightbox" onclick="closeLightbox()">
       <button class="lb-close" onclick="closeLightbox()">✕</button>
@@ -162,25 +207,25 @@
       <div class="section-container">
         <div class="section-tag" data-aos="fade-up">doa kecil</div>
         <div class="wishes-grid wishes-grid--5">
-          <div class="wish-item" data-aos="fade-up" data-aos-delay="0">
+          <div class="wish-item">
             <div class="wish-glyph">🌸</div>
-            <h3>Kesehatan</h3>
-            <p>Semoga kamu sehat selalu, jiwa dan raganya</p>
+            <h3 class="wish-title">Kesehatan</h3>
+            <p class="wish-desc">Semoga kamu sehat selalu, jiwa dan raganya</p>
           </div>
-          <div class="wish-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="wish-item">
             <div class="wish-glyph">✨</div>
-            <h3>Kebahagiaan</h3>
-            <p>Semoga kamu bisa bahagia dan membahagiakan orang-orang di sekitar kamu</p>
+            <h3 class="wish-title">Kebahagiaan</h3>
+            <p class="wish-desc">Semoga kamu bisa bahagia dan membahagiakan orang-orang di sekitar kamu</p>
           </div>
-          <div class="wish-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="wish-item">
             <div class="wish-glyph">🤍</div>
-            <h3>Mimpi</h3>
-            <p>Semoga banyak mimpi kamu bisa terwujud yaa sayang~</p>
+            <h3 class="wish-title">Mimpi</h3>
+            <p class="wish-desc">Semoga banyak mimpi kamu bisa terwujud yaa sayang~</p>
           </div>
-          <div class="wish-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="wish-item">
             <div class="wish-glyph">🎂</div>
-            <h3>Hari Ini</h3>
-            <p>Semoga di hari ulang tahun ini, kamu merasakan bahagia dan selalu damai</p>
+            <h3 class="wish-title">Hari Ini</h3>
+            <p class="wish-desc">Semoga di hari ulang tahun ini, kamu merasakan bahagia dan selalu damai</p>
           </div>
         </div>
       </div>
@@ -190,9 +235,8 @@
     <section class="closing-section" id="closing">
       <div class="closing-particles" id="closingParticles"></div>
       <div class="section-container closing-inner">
-        <p class="closing-quote" data-aos="fade-up">
-          "Kamu punya dunia kamu, keluarga, sahabat, teman,<br />kerjaan dan banyak lagi — semoga kamu
-          mendapat<br />banyak hal baik di dunia kamu."
+        <p class="closing-quote" id="closingQuote">
+          "Kamu punya dunia kamu, keluarga, sahabat, teman,<br />kerjaan dan banyak lagi — semoga kamu mendapat<br />banyak hal baik di dunia kamu."
         </p>
         <div class="closing-name" data-aos="zoom-in" data-aos-delay="200">Putri 🌸</div>
         <button class="celebrate-btn" id="celebrateBtn" data-aos="fade-up" data-aos-delay="300" onclick="celebrate()">
